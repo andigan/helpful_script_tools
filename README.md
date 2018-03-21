@@ -1,2 +1,3 @@
-# scriptsAndSuch
-A collection of random scripts and such.
+
+###### Node Git Chooser
+Command line interface for selecting a git branch.

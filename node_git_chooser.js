@@ -30,7 +30,8 @@ exec('git branch', (err, stdout, stderr) => {
     // with toString() and then trim()
 
     process.stdout.write('\n');
-    if (isNaN(input.toString().trim()) || parseInt(input.toString().trim()) > branches.length - 1 || parseInt(input.toString().trim()) < 0) {
+
+    if (isNaN(input.toString().trim()) || input.toString().trim() === '' || parseInt(input.toString().trim()) > branches.length - 1 || parseInt(input.toString().trim()) < 0) {
       process.stdout.write('---------------');
       process.stdout.write('\n');
       process.stdout.write('INPUT NOT VALID');

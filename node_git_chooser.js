@@ -31,7 +31,15 @@ exec('git branch', (err, stdout, stderr) => {
 
     process.stdout.write('\n');
 
-    if (isNaN(input.toString().trim()) || input.toString().trim() === '' || parseInt(input.toString().trim()) > branches.length - 1 || parseInt(input.toString().trim()) < 0) {
+    let trimmedInput = input.toString().trim();
+    let branchName;
+
+    if (
+      isNaN(trimmedInput)
+      || trimmedInput === ''
+      || parseInt(trimmedInput) > branches.length - 1
+      || parseInt(trimmedInput) < 0
+    ) {
       process.stdout.write('---------------');
       process.stdout.write('\n');
       process.stdout.write('INPUT NOT VALID');
@@ -40,7 +48,16 @@ exec('git branch', (err, stdout, stderr) => {
       process.stdout.write('\n');
       process.exit();
     } else {
-      exec(`git checkout ${branches[input.toString().trim()][1]}`, (err, stdout, stderr) => {
+
+
+
+      if (branches[trimmedInput][1].substring(0,2) === '* ') {
+        branchName = branches[trimmedInput][1].substring(2);
+      } else {
+        branchName = branches[trimmedInput][1]
+      };
+
+      exec(`git checkout ${branchName}`, (err, stdout, stderr) => {
         if (err) {
           console.log(stderr);
         }

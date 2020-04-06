@@ -8,7 +8,7 @@ alias cc="clear && printf \'\e[3J\'"
 alias gb="node node_git_chooser.js"
 
 # npm script selector
-alias rc="node node_script_runner.js"
+alias rc="node npm_script_runner.js"
 
 # show or hide all files in finder (mac)
 
